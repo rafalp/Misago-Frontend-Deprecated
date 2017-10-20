@@ -6,5 +6,35 @@
   "repository": "https://github.com/rafalp/Misago-Frontend.git",
   "author": "Rafal Piton",
   "license": "GPL-2.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "webpack --config config/webpack.prod.js",
+    "watch": "webpack --config config/webpack.dev.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "eslint": "^4.9.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "jest": "^21.2.1",
+    "redux": "^3.7.2",
+    "redux-thunks": "^0.3.1",
+    "reselect": "^3.0.1",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
 }

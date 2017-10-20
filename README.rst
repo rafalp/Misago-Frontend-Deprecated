@@ -11,6 +11,19 @@ But until this stage of development is achieved, this repo will be iterated on a
 For issues tracker see the `Single Page Application <https://github.com/rafalp/Misago/milestone/22>`_ milestone on main repo.
 
 
+Development
+===========
+
+This package comes with two scripts of interest for developers:
+
+- `build`: runs optimised build for sass and js files
+- `watch`: runs unoptimised build for sass and js files and watches files for changes
+
+After cloning this repo locally and installing deps via `yarn install`, you also need to setup local Misago forum somewhere, preferably using code form latest `master` as its only one that implements changes required by new frontend to run.
+
+After you have your local Misago instalation setup, edit your `settings.py` and add path to this repo's `dist` directory in your `STATICFILES_DIRS` so they are served instead of Misago's default files, and then add path to this repo's `templates` in `TEMPLATES['DIRS']` setting. 
+
+
 Authors
 =======
 
