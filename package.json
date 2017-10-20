@@ -1,0 +1,10 @@
+{
+  "name": "misago-frontend",
+  "version": "0.1",
+  "description": "Frontend for Misago forum application.",
+  "main": "index.js",
+  "repository": "https://github.com/rafalp/Misago-Frontend.git",
+  "author": "Rafal Piton",
+  "license": "GPL-2.0",
+  "private": true
+}

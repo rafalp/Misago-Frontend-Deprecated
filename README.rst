@@ -8,7 +8,7 @@ Ultimately this respository will contain source assets and build scripts, enabli
 
 But until this stage of development is achieved, this repo will be iterated on aggressively and include some additional files (like work in progress Django templates) that will be moved on to main repo before release.
 
-Tread carefuly.
+For issues tracker see the `Single Page Application <https://github.com/rafalp/Misago/milestone/22>`_ milestone on main repo.
 
 
 Authors
