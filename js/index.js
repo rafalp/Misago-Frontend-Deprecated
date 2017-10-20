@@ -1,3 +1,3 @@
-import sayMeow from './Module'
+import start from './Module'
 
-sayMeow()
+export { start }

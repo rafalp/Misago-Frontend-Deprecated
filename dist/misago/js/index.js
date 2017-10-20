@@ -1,3 +1,4 @@
+var misago =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,13 +71,18 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.start = undefined;
+
 var _Module = __webpack_require__(1);
 
 var _Module2 = _interopRequireDefault(_Module);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _Module2.default)();
+exports.start = _Module2.default;
 
 /***/ }),
 /* 1 */
@@ -88,11 +94,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _constants = __webpack_require__(2);
+
 var sayMeow = function sayMeow() {
-  console.log("Meow Meow!");
+  console.log(_constants.misago);
 };
 
 exports.default = sayMeow;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.misago = undefined;
+
+var _misago = __webpack_require__(3);
+
+var _misago2 = _interopRequireDefault(_misago);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.misago = _misago2.default;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* global window */
+var misago = window.__MISAGO || {};
+
+exports.default = misago;
 
 /***/ })
 /******/ ]);

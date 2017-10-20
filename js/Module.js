@@ -1,5 +1,7 @@
+import { misago } from './constants'
+
 const sayMeow = () => {
-  console.log("Meow Meow!")
+  console.log(misago)
 }
 
 export default sayMeow
