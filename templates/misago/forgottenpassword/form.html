@@ -1,0 +1,44 @@
+{% extends "misago/base.html" %}
+{% load i18n %}
+
+
+{% block title %}{% trans "Change forgotten password" %} | {{ block.super }}{% endblock %}
+
+
+{% block content %}
+<div class="page page-forgotten-password-form">
+  <div class="page-header-bg">
+    <div class="page-header">
+      <div class="container">
+        <h1>{% trans "Change forgotten password" %}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div id="reset-password-form-mount" class="col-md-4 col-md-offset-4">
+
+        <noscript>
+          <div class="well well-form well-noscript">
+            <div class="noscript-message">
+
+              <div class="message-icon">
+                <span class="material-icon">error_outline</span>
+              </div>
+
+              <div class="message-body">
+                <p>{% trans "To reset your password please enable JavaScript." %}</p>
+              </div>
+
+            </div>
+          </div>
+        </noscript>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}

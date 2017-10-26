@@ -1,0 +1,75 @@
+{% extends "misago/base.html" %}
+{% load i18n %}
+
+
+{% block title %}
+  {% if paginator.page > 1 %}
+    {{ thread.title }} ({% blocktrans with page=paginator.page %}page: {{ page }}{% endblocktrans %}) | {{ category.name }} | {{ block.super }}
+  {% else %}
+    {{ thread.title }} | {{ category.name }} | {{ block.super }}
+  {% endif %}
+{% endblock title %}
+
+
+{% block og-title %}{{ thread.title }}{% endblock %}
+
+
+{% block og-description %}
+  {% blocktrans trimmed with starter=thread.starter_name started_on=thread.started_on|date category=category.name %}
+    Started by {{ starter }} on {{ started_on }} in the {{ category }} category.
+  {% endblocktrans %} {% blocktrans trimmed count replies=thread.replies with last_post_on=thread.last_post_on|date %}
+    {{ replies }} reply, last one from {{ last_post_on }}.
+  {% plural %}
+    {{ replies }} replies, last one from {{ last_post_on }}.
+  {% endblocktrans %}
+{% endblock og-description %}
+
+
+{% block og-url %}
+{{ SITE_ADDRESS }}{{ thread.get_absolute_url }}
+{% endblock og-url %}
+
+
+{% block meta-extra %}
+{% if paginator.page > 1 %}
+<link rel="canonical" href="{% url url_name slug=thread.slug pk=thread.pk page=paginator.page %}" />
+{% else %}
+<link rel="canonical" href="{% url url_name slug=thread.slug pk=thread.pk %}" />
+{% endif %}
+{% if paginator.previous > 1 %}
+<link rel="prev" href="{% url url_name slug=thread.slug pk=thread.pk page=paginator.previous %}" />
+{% elif paginator.first %}
+<link rel="prev" href="{% url url_name slug=thread.slug pk=thread.pk %}" />
+{% endif %}
+{% if paginator.next %}
+<link rel="next" href="{% url url_name slug=thread.slug pk=thread.pk page=paginator.next %}" />
+{% endif %}
+{% endblock meta-extra %}
+
+
+{% block content %}
+<div class="page page-thread {% if category.css_class %}page-thread-{{ category.css_class }}{% endif %}">
+  <div class="page-header-bg">
+    <div class="page-header">
+
+      {% include "misago/thread/breadcrumbs.html" %}
+      <div class="container">
+        <h1>{{ thread.title }}</h1>
+      </div>
+      {% include "misago/thread/stats.html" %}
+
+    </div>
+  </div>
+  <div class="container">
+
+    {% include "misago/thread/toolbar-top.html" %}
+    {% if thread.poll %}
+      {% include "misago/poll/index.html" with poll=thread.poll %}
+    {% endif %}
+
+    {% include "misago/thread/posts/index.html" %}
+    {% include "misago/thread/paginator.html" %}
+
+  </div>
+</div>
+{% endblock content %}

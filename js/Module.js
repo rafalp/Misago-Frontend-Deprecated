@@ -1,7 +1,10 @@
-import { misago } from './constants'
+import { api, auth, conf, url } from './constants'
 
 const sayMeow = () => {
-  console.log(misago)
+  console.log(auth)
+  console.log(api)
+  console.log(url)
+  console.log(conf)
 }
 
 export default sayMeow

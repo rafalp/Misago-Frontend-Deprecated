@@ -1,0 +1,39 @@
+{% load i18n %}
+<footer class="misago-footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <noscript>
+        <p class="noscript-message">
+          <i class="material-icon hidden-xs hidden-sm">info_outline</i>
+          {% trans "For complete experience please enable JavaScript." %}
+        </p>
+      </noscript>
+
+      {% if misago_settings.terms_of_service or misago_settings.terms_of_service_link or misago_settings.privacy_policy or misago_settings.privacy_policy_link or misago_settings.forum_footnote %}
+        <ul class="list-inline footer-nav">
+        {% if misago_settings.forum_footnote %}
+          <li class="site-footnote">
+            {{ misago_settings.forum_footnote }}
+          </li>
+        {% endif %}
+        {% if misago_settings.terms_of_service or misago_settings.terms_of_service_link %}
+          <li>
+            <a href="{% url 'misago:terms-of-service' %}">{% trans "Terms of service" %}</a>
+          </li>
+        {% endif %}
+        {% if misago_settings.privacy_policy or misago_settings.privacy_policy_link %}
+          <li>
+            <a href="{% url 'misago:privacy-policy' %}">{% trans "Privacy policy" %}</a>
+          </li>
+        {% endif %}
+        </ul>
+      {% endif %}
+
+      <a href="http://misago-project.org" class="misago-branding">
+        powered by <strong>misago</strong>
+      </a>
+
+    </div>
+  </div>
+</footer>

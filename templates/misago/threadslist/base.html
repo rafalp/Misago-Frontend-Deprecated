@@ -1,0 +1,95 @@
+{% extends "misago/base.html" %}
+{% load i18n %}
+
+
+{% block meta-extra %}
+<link rel="canonical" href="{{ REQUEST_PATH }}" />
+{% if paginator.previous > 1 %}
+<link rel="prev" href="{{ REQUEST_PATH }}?page={{ paginator.previous }}" />
+{% elif paginator.first %}
+<link rel="prev" href="{{ REQUEST_PATH }}" />
+{% endif %}
+{% if paginator.next %}
+<link rel="next" href="{{ REQUEST_PATH }}?page={{ paginator.next }}" />
+{% endif %}
+{% endblock meta-extra %}
+
+
+{% block content %}
+<div class="container">
+  {% block page-header %}{% endblock page-header %}
+  {% block list-container %}
+    {% if subcategories %}
+      <section itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <nav class="nav">
+          {% for subcategory in subcategories %}
+            <a class="nav-link" href="{{ subcategory.get_absolute_url }}{% if list_type != 'all' %}{{ list_type }}/{% endif %}">
+              {{ subcategory.name }}
+            </a>
+          {% endfor %}
+        </nav>
+      </section>
+    {% endif %}
+
+    <section>
+      {% block threads-list %}
+        <ul class="list-unstyled" itemscope itemtype="http://schema.org/ItemList">
+          <meta itemprop="numberOfItems" content="{{ paginator.count }}">
+          <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
+          {% for thread in threads %}
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a href="{{ thread.get_absolute_url }}" itemprop="url">
+                <span itemprop="name">{{ thread.title }}</span>
+              </a>
+              {% if thread.category != category %}
+                (<a href="{{ thread.category.get_absolute_url }}">{{ thread.category.name }}</a>)
+              {% endif %}
+              <meta itemprop="position" content="{{ paginator.before|add:forloop.counter }}">
+            </li>
+          {% empty %}
+            <li>
+              {% block list-empty-message %}
+                {% if list_type == 'all' %}
+                  <p>
+                    {% if category.level %}
+                      {% trans "There are no threads in this category." %}
+                    {% else %}
+                      {% trans "There are no threads on this forum... yet!" %}
+                    {% endif %}
+                  </p>
+                  <p>
+                    {% trans "Why not start one yourself?" %}
+                  </p>
+                {% else %}
+                  <p>
+                    {% trans "No threads matching specified criteria were found." %}
+                  </p>
+                {% endif %}
+              {% endblock list-empty-message %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endblock threads-list %}
+
+      {% if paginator.pages > 1 %}
+        <nav class="nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+          {% if paginator.previous > 1 %}
+            <a class="nav-link" href="{{ REQUEST_PATH }}?page={{ paginator.previous }}" rel="prev">
+              {% trans 'Previous page' %}
+            </a>
+          {% elif paginator.first %}
+            <a class="nav-link" href="{{ REQUEST_PATH }}" rel="prev">
+              {% trans 'Previous page' %}
+            </a>
+          {% endif %}
+          {% if paginator.next %}
+            <a class="nav-link" href="{{ REQUEST_PATH }}?page={{ paginator.next }}" rel="next">
+              {% trans 'Next page' %}
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+    </section>
+  {% endblock list-container %}
+</div>
+{% endblock content %}

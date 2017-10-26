@@ -1,0 +1,22 @@
+{% extends "misago/base.html" %}
+{% load i18n %}
+
+
+{% block title %}
+{% if misago_settings.forum_index_title %}
+{{ misago_settings.forum_index_title }}
+{% else %}
+{{ misago_settings.forum_name }}
+{% endif %}
+{% endblock title %}
+
+
+{% block meta-description %}{{ misago_settings.forum_index_meta_description }}{% endblock meta-description %}
+
+
+{% block content %}
+<div class="container">
+  <p class="lead">This is Django-rendered forum index template.</p>
+  <p>Neat, huh?</p>
+</div>
+{% endblock content %}

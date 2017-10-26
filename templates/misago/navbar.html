@@ -1,0 +1,14 @@
+{% load static %}
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container">
+    {% if misago_settings.forum_branding_display %}
+      <a class="navbar-brand mb-0 h1" href="{% url 'misago:index' %}">
+        <img src="{% static 'misago/img/logo.png' %}" height="30" class="d-inline-block align-top" alt="">
+        {% if misago_settings.forum_branding_text %}
+          <span>{{ misago_settings.forum_branding_text}}</span>
+        {% endif %}
+      </a>
+    {% endif %}
+    <div id="navbar-portal"></div>
+  </div>
+</nav>

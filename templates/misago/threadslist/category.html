@@ -1,0 +1,58 @@
+{% extends "misago/threadslist/base.html" %}
+{% load i18n misago_shorthands misago_stringutils %}
+
+
+{% block title %}
+  {% if list_name %}
+    {% if paginator.page > 1 %}
+      {{ list_name }} ({% blocktrans with page=paginator.page %}page: {{ page }}{% endblocktrans %}) | {{ category }} | {{ block.super }}
+    {% else %}
+      {{ list_name }} | {{ category }} | {{ block.super }}
+    {% endif %}
+  {% elif paginator.page > 1 %}
+    {{ category }} ({% blocktrans with page=paginator.page %}page: {{ page }}{% endblocktrans %}) | {{ block.super }}
+  {% else %}
+    {{ category }} | {{ block.super }}
+  {% endif %}
+{% endblock title %}
+
+
+{% block meta-description %}
+  {% if category.description %}
+    {{ category.description }}
+  {% endif %}
+{% endblock meta-description %}
+
+
+{% block og-title %}
+  {{ category }}
+{% endblock og-title %}
+
+
+{% block og-description %}
+  {% if category.description %}
+    {{ category.description }}
+  {% endif %}
+{% endblock og-description %}
+
+
+{% block og-url %}{{ SITE_ADDRESS }}{{ REQUEST_PATH }}{% endblock %}
+
+
+{% block page-header %}
+<h1>{{ category }}</h1>
+{% if user.is_authenticated %}
+  {% include "misago/threadslist/tabs.html" %}
+{% endif %}
+{% endblock page-header %}
+
+
+{% block list-container %}
+{% if category.description %}
+  <div>
+    {{ category.description|force_escape|urlize|linebreaks|safe }}
+  </div>
+{% endif %}
+
+{{ block.super }}
+{% endblock list-container%}
