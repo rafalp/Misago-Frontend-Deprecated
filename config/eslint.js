@@ -257,9 +257,18 @@ module.exports = {
 
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/jsx-no-comment-textnodes': 'warn',
+    'react/jsx-closing-bracket-location': 'warn',
+    'react/jsx-curly-spacing': ['warn', 'never'],
+    'react/jsx-equals-spacing': ['warn', 'never'],
     'react/jsx-no-duplicate-props': ['warn', { ignoreCase: true }],
     'react/jsx-no-target-blank': 'warn',
     'react/jsx-no-undef': 'error',
+    'react/jsx-sort-props': ['warn', {
+      'callbacksLast': true,
+      'shorthandLast': true,
+      'ignoreCase': false,
+      'noSortAlphabetically': false
+    }],
     'react/jsx-pascal-case': [
       'warn',
       {
@@ -267,14 +276,25 @@ module.exports = {
         ignore: [],
       },
     ],
+    'react/jsx-tag-spacing': ['warn', {
+      "closingSlash": "never",
+      "beforeSelfClosing": "always",
+      "afterOpening": "never"
+    }],
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
+    'react/jsx-wrap-multilines': 'warn',
     'react/no-danger-with-children': 'warn',
     'react/no-deprecated': 'warn',
     'react/no-direct-mutation-state': 'warn',
     'react/no-is-mounted': 'warn',
+    'react/no-multi-comp': ['warn', { 'ignoreStateless': 'true' }],
+    'react/no-string-refs': 'warn',
+    'react/no-unknown-property': 'warn',
     'react/react-in-jsx-scope': 'error',
     'react/require-render-return': 'error',
+    'react/sort-comp': 'warn',
+    'react/self-closing-comp': 'warn',
     'react/style-prop-object': 'warn',
 
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
