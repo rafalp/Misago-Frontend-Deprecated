@@ -10,8 +10,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js --progress -p",
     "watch": "webpack --config config/webpack.dev.js",
-    "test": "flow && jest --config config/jest.config.js",
-    "test-watch": "flow && jest --watchAll --config config/jest.config.js"
+    "test": "eslint --config config/eslint.js js/** && flow && jest --config config/jest.config.js",
+    "test-watch": "eslint --config config/eslint.js js/** && flow && jest --watchAll --config config/jest.config.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

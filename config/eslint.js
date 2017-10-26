@@ -10,8 +10,8 @@
 // Inspired by https://github.com/airbnb/javascript but less opinionated.
 
 // We use eslint-loader so even warnings are very visible.
-// This is why we only use "WARNING" level for potential errors,
-// and we don't use "ERROR" level at all.
+// This is why we only use 'WARNING' level for potential errors,
+// and we don't use 'ERROR' level at all.
 
 // In the future, we might create a separate list of rules for production.
 // It would probably be more strict.
@@ -106,10 +106,6 @@ module.exports = {
       experimentalObjectRestSpread: true,
     },
   },
-
-  globals: [
-    'console'
-  ],
 
   rules: {
     // http://eslint.org/docs/rules/
@@ -277,9 +273,9 @@ module.exports = {
       },
     ],
     'react/jsx-tag-spacing': ['warn', {
-      "closingSlash": "never",
-      "beforeSelfClosing": "always",
-      "afterOpening": "never"
+      closingSlash: 'never',
+      beforeSelfClosing: 'always',
+      afterOpening: 'never'
     }],
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
@@ -288,7 +284,7 @@ module.exports = {
     'react/no-deprecated': 'warn',
     'react/no-direct-mutation-state': 'warn',
     'react/no-is-mounted': 'warn',
-    'react/no-multi-comp': ['warn', { 'ignoreStateless': 'true' }],
+    'react/no-multi-comp': ['warn', { ignoreStateless: true }],
     'react/no-string-refs': 'warn',
     'react/no-unknown-property': 'warn',
     'react/react-in-jsx-scope': 'error',
