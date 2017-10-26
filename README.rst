@@ -21,7 +21,7 @@ This package comes with following scripts that are of interest for developers:
 - ``test``: runs tests suite
 - ``test-watch``: runs tests in watch mode
 
-After cloning this repo locally and installing deps via `yarn install`, you also need to setup local Misago forum somewhere, preferably using code form latest `master` as its only one that implements changes required by new frontend to run.
+After cloning this repo locally and installing deps via ``yarn install``, you also need to setup local Misago forum somewhere, preferably using code form latest `master` as its only one that implements changes required by new frontend to run.
 
 After you have your local Misago instalation setup, edit your ``settings.py`` and add path to this repo's ``dist`` directory in your ``STATICFILES_DIRS`` so they are served instead of Misago's default files, and then add path to this repo's ``templates`` in ``TEMPLATES['DIRS']`` setting. 
 
