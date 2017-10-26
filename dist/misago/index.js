@@ -120,11 +120,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _constants = __webpack_require__(4);
 
+var flowTest = function flowTest(value) {
+  console.log(value);
+};
+
+
 var sayMeow = function sayMeow() {
-  console.log(_constants.auth);
-  console.log(_constants.api);
-  console.log(_constants.url);
-  console.log(_constants.conf);
+  flowTest(_constants.auth);
+  flowTest(_constants.api);
+  flowTest(_constants.url);
+  flowTest(_constants.conf);
+  flowTest(21321);
 };
 
 exports.default = sayMeow;

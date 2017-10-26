@@ -1,10 +1,15 @@
+// @flow
 import { api, auth, conf, url } from './constants'
 
+const flowTest = (value: string) => {
+  console.log(value)
+}
+
 const sayMeow = () => {
-  console.log(auth)
-  console.log(api)
-  console.log(url)
-  console.log(conf)
+  flowTest(auth)
+  flowTest(api)
+  flowTest(url)
+  flowTest(conf)
 }
 
 export default sayMeow

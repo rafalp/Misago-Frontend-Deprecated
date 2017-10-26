@@ -9,14 +9,19 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js --progress -p",
-    "watch": "webpack --config config/webpack.dev.js"
+    "watch": "webpack --config config/webpack.dev.js",
+    "test": "flow && jest --config config/jest.config.js",
+    "test-watch": "flow && jest --watchAll --config config/jest.config.js"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "bootstrap": "^4.0.0-beta.2",
@@ -45,6 +50,7 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "flow-bin": "^0.57.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",

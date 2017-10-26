@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const path = require('path')
 
@@ -43,6 +43,7 @@ module.exports = {
                   }
                 }
               ],
+              'flow',
               'react'
             ]
           }
