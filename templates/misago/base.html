@@ -29,15 +29,19 @@
     <div id="misago-container">
       {% include "misago/jumbotron.html" %}
       {% include "misago/navbar.html" %}
-      <div id="mobile-navbar-dropdown-portal" class="mobile-dropdown"></div>
+      <div id="navbar-dropdown-portal" class="mobile-dropdown"></div>
 
       <main id="app">
         <noscript>
+          <div class="alert alert-warning rounded-0 border-left-0 border-right-0" role="alert">
+            <div class="container">
+              {% trans "Please enable JavaScript in your browser for complete experience." %}
+            </div>
+          </div>
           {% block content %}{% endblock content %}
         </noscript>
       </main>
 
-      {% include "misago/posting.html" %}
       {% include "misago/footer.html" %}
     </div>
     {% include "misago/auth.html" %}
