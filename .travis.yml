@@ -7,7 +7,7 @@ cache:
   directories:
     - node_modules
 script:
-  - npm run eslint --config config/eslint.config.js js/**
-  - npm run stylelint --config config/stylelint.config.js scss/**
-  - npm run flow
-  - npm run jest --config config/jest.config.js
+  - yarn run eslint js/** --config config/eslint.config.js
+  - yarn run stylelint ./scss/**/*.scss --config config/stylelint.config.js
+  - yarn flow
+  - yarn jest --config config/jest.config.js

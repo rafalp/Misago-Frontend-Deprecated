@@ -10,8 +10,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js --progress -p",
     "watch": "webpack --config config/webpack.dev.js",
-    "test": "eslint --config config/eslint.config.js js/** && flow && jest --config config/jest.config.js",
-    "test-watch": "eslint --config config/eslint.config.js js/** && flow && jest --watchAll --config config/jest.config.js"
+    "test": "eslint js/** --config config/eslint.config.js && flow && jest js/** --config config/jest.config.js",
+    "test-watch": "eslint js/**--config config/eslint.config.js && flow && jest js/** --watchAll --config config/jest.config.js"
   },
   "eslintConfig": {
     "env": {
