@@ -1,7 +1,24 @@
-// Misago Variables And Overrides
+// Misago variables and overrides
 //
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:              false !default;
+
+
+// Icons
+//
+// Default sizings for icons. Note: Material Icons were designed for 24px size and
+// look poorly when rendered in size thats not multiple of 12px.
+
+$icon-size-base:              24px !default;
+$icon-size-lg:                ($icon-size-base * 2) !default; // twice the base size
+$icon-size-sm:                ($icon-size-base / 2) !default; // half the base size
 
 
 // Grid containers

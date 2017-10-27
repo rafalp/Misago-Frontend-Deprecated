@@ -56,7 +56,4 @@
 {% else %}
   <h1>{% trans "Threads" %}</h1>
 {% endif %}
-{% if user.is_authenticated %}
-  {% include "misago/threadslist/tabs.html" %}
-{% endif %}
 {% endblock page-header %}

@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const webpack = require('webpack')
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -10,13 +11,10 @@ const baseDir = path.dirname(__dirname)
 const buildDir = path.resolve(baseDir, 'dist', 'misago')
 
 module.exports = {
-  entry: [
-    path.resolve(baseDir, 'js/index.js'),
-    path.resolve(baseDir, 'scss/style.scss')
-  ],
+  entry: path.resolve(baseDir, 'js/index.js'),
   output: {
     path: buildDir,
-    filename: 'index.js',
+    filename: '[name].js',
     library: 'misago'
   },
   module : {
@@ -67,6 +65,10 @@ module.exports = {
           },
           'sass-loader'
         ])
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=iconfont/[name].[ext]'
       }
     ]
   },
@@ -77,6 +79,17 @@ module.exports = {
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function(module) {
+        // This prevents stylesheet resources with the .css or .scss extension
+        // from being moved from their original chunk to the vendor chunk
+        if(module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
+          return false;
+        }
+        return module.context && module.context.indexOf("node_modules") !== -1;
+      }
+    }),
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true

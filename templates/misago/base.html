@@ -23,30 +23,29 @@
   </head>
   <body>
 
-    <div id="auth-message-portal"></div>
-    <div id="snackbar-portal"></div>
+    <div id="auth-message-root"></div>
+    <div id="snackbar-root"></div>
 
     <div id="misago-container">
       {% include "misago/jumbotron.html" %}
       {% include "misago/navbar.html" %}
-      <div id="navbar-dropdown-portal" class="mobile-dropdown"></div>
 
-      <main id="app">
-        <noscript>
-          <div class="alert alert-warning rounded-0 border-left-0 border-right-0" role="alert">
-            <div class="container">
-              {% trans "Please enable JavaScript in your browser for complete experience." %}
-            </div>
+      <noscript>
+        <div class="alert alert-warning rounded-0 border-left-0 border-right-0" role="alert">
+          <div class="container p-0">
+            {% trans "Please enable JavaScript in your browser for complete experience." %}
           </div>
-          {% block content %}{% endblock content %}
-        </noscript>
-      </main>
+        </div>
+        {% block content %}{% endblock content %}
+      </noscript>
+
+      <div id="app-root"></div>
 
       {% include "misago/footer.html" %}
     </div>
     {% include "misago/auth.html" %}
 
-    <div id="modal-portal"></div>
+    <div id="modal-root"></div>
 
     <script src="{% url 'django-i18n' %}?{{ LANGUAGE_CODE }}"></script>
     <script type="text/javascript">
@@ -61,10 +60,10 @@
     {% if LANGUAGE_CODE != "en-us" and MOMENTJS_LOCALE_URL %}
       <script src="{% static MOMENTJS_LOCALE_URL %}"></script>
     {% endif %}
-    <script src="{% static 'misago/index.js' %}"></script>
+    <script src="{% static 'misago/main.js' %}"></script>
     {% include "misago/scripts.html" %}
     <script type="text/javascript">
-      misago.start();
+      misago.init();
     </script>
 
   </body>

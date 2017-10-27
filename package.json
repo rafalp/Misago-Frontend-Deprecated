@@ -13,7 +13,25 @@
     "test": "eslint --config config/eslint.js --global console js/** && flow && jest --config config/jest.config.js",
     "test-watch": "eslint --config config/eslint.js --global console js/** && flow && jest --watchAll --config config/jest.config.js"
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    }
+  },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "redux-thunks": "^0.3.1",
+    "reselect": "^3.0.1"
+  },
+  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
@@ -24,7 +42,6 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
-    "bootstrap": "^4.0.0-beta.2",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.9.0",
@@ -34,9 +51,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "flow-bin": "^0.57.3",
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
+    "react-redux": "^5.0.6",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.2.0",
@@ -48,14 +68,5 @@
     "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
     "webpack": "^3.8.1",
     "webpack-merge": "^4.1.0"
-  },
-  "devDependencies": {
-    "flow-bin": "^0.57.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-router": "^4.2.0",
-    "redux": "^3.7.2",
-    "redux-thunks": "^0.3.1",
-    "reselect": "^3.0.1"
   }
 }

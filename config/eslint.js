@@ -89,14 +89,6 @@ module.exports = {
 
   plugins: ['import', 'flowtype', 'jsx-a11y', 'react'],
 
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    jest: true,
-    node: true,
-  },
-
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',

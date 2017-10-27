@@ -19,9 +19,6 @@
 
 {% block page-header %}
 <h1>{{ category }}</h1>
-{% if user.is_authenticated %}
-  {% include "misago/threadslist/tabs.html" with hide_unapproved=True %}
-{% endif %}
 {% endblock page-header %}
 
 
