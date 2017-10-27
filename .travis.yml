@@ -8,6 +8,6 @@ cache:
     - node_modules
 script:
   - yarn run eslint js/** --config config/eslint.config.js
-  - yarn run stylelint ./scss/**/*.scss --config config/stylelint.config.js
-  - yarn flow
-  - yarn jest --config config/jest.config.js
+  - yarn run stylelint scss/**/*.scss --config config/stylelint.config.js
+  - yarn run flow
+  - yarn run jest --config config/jest.config.js
