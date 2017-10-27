@@ -1,6 +1,6 @@
 {
   "name": "misago-frontend",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Frontend for Misago forum application.",
   "main": "index.js",
   "repository": "https://github.com/rafalp/Misago-Frontend.git",
