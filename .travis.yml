@@ -6,8 +6,3 @@ node_js:
 cache:
   directories:
     - node_modules
-script:
-  - npm run eslint js/** --config config/eslint.config.js
-  - npm run stylelint scss/**/*.scss --config config/stylelint.config.js
-  - npm run flow
-  - npm run jest --config config/jest.config.js
