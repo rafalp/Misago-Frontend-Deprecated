@@ -3,3 +3,11 @@ node_js:
   - "6"
   - "7"
   - "8"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run eslint --config config/eslint.config.js js/**
+  - npm run stylelint --config config/stylelint.config.js scss/**
+  - npm run flow
+  - npm run jest --config config/jest.config.js

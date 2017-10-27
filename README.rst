@@ -2,6 +2,19 @@
 Misago Frontend
 ===============
 
+
+.. image:: https://travis-ci.org/rafalp/Misago-Frontend.svg?branch=master
+   :target: https://travis-ci.org/rafalp/Misago-Frontend
+   :alt: Tests Result
+
+.. image:: https://badges.gitter.im/Misago/Misago.svg
+   :target: https://gitter.im/Misago/Misago?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+   :alt: Development Chat
+
+
+**Development Status:** *Nothing to see here... yet!*
+
+
 This repository contains source for Misago frontend, written using React.js 16 and Bootstrap 4.
 
 Ultimately this respository will contain source assets and build scripts, enabling those looking to develop custom theme for their site to simply fork this repo, edit its config and then happily hack around.
