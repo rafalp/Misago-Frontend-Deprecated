@@ -1,7 +1,7 @@
 // @flow
 import type { Reducer } from 'redux'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-import ReduxThunk from 'redux-thunk';
+import ReduxThunk from 'redux-thunk'
 
 class StoreFactory {
   reducers: { [string]: Reducer<State, Action> }

@@ -24,6 +24,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
+    "classnames": "^2.2.5",
+    "moment": "^2.19.1",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
@@ -58,6 +61,7 @@
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
+    "react-test-renderer": "^16.0.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.2.0",

@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom'
 
 const Navbar = () => {
   return ReactDOM.createPortal(
-    [
-      <p>lorem!</p>
-    ],
+    <p>lorem!</p>,
     document.getElementById('navbar-root'),
   )
 }

@@ -1,12 +1,18 @@
 import React from 'react'
-import Navbar from 'misago/containers/Navbar'
+import Auth from './containers/Auth'
+import Navbar from './containers/Navbar'
+import router from './router'
+import store from './store'
 
 const App = () => {
+  // initialize router and store on render!
   return (
-    <div className="container">
-      <h1>Hello, this is placeholder for react!</h1>
-      <Navbar />
-    </div>
+    <Auth>
+      <div className="container">
+        <h1>Hello, this is placeholder for react!</h1>
+        <Navbar />
+      </div>
+    </Auth>
   )
 }
 

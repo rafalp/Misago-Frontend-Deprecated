@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Icon /> component normalizes icon names 1`] = `
+<span
+  className="material-icons"
+>
+  check_box
+</span>
+`;
+
+exports[`<Icon /> component renders 1`] = `
+<span
+  className="material-icons"
+>
+  check
+</span>
+`;
+
+exports[`<Icon /> component renders with extra className 1`] = `
+<span
+  className="material-icons lorem ipsum"
+>
+  check
+</span>
+`;
