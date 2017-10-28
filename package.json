@@ -26,9 +26,11 @@
     "bootstrap": "^4.0.0-beta.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
+    "reactstrap": "https://github.com/reactstrap/reactstrap.git#839419e",
     "redux": "^3.7.2",
-    "redux-thunks": "^0.3.1",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   },
   "devDependencies": {
@@ -56,7 +58,6 @@
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
-    "react-redux": "^5.0.6",
     "sass-lint": "^1.12.1",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.2.0",
