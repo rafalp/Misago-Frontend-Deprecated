@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar /> component ignores size prop when no user is provided 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={200}
+  src="blank_avatar.png"
+  srcSet="blank_avatar.png"
+  width={200}
+/>
+`;
+
+exports[`<Avatar /> component renders 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={100}
+  src="blank_avatar.png"
+  srcSet="blank_avatar.png"
+  width={100}
+/>
+`;
+
+exports[`<Avatar /> component renders for anonymous 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={100}
+  src="blank_avatar.png"
+  srcSet="blank_avatar.png"
+  width={100}
+/>
+`;
+
+exports[`<Avatar /> component renders for user 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={100}
+  src="/avatars/100.png"
+  srcSet="/avatars/100.png"
+  width={100}
+/>
+`;
+
+exports[`<Avatar /> component renders for user with size 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={200}
+  src="/avatars/200.png"
+  srcSet="/avatars/200.png"
+  width={200}
+/>
+`;
+
+exports[`<Avatar /> component renders for user with size and size2x 1`] = `
+<img
+  alt=""
+  className="user-avatar"
+  height={100}
+  src="/avatars/100.png"
+  srcSet="/avatars/200.png"
+  width={100}
+/>
+`;
+
+exports[`<Avatar /> component renders with class name 1`] = `
+<img
+  alt=""
+  className="user-avatar poster-avatar"
+  height={100}
+  src="blank_avatar.png"
+  srcSet="blank_avatar.png"
+  width={100}
+/>
+`;

@@ -1,6 +1,13 @@
 // @flow
+import { store as initialState } from './constants'
+import * as normalizers from './normalizers'
+import { authReducer } from './reducers'
+import { modalReducer } from './reducers'
 import StoreFactory from './utils/StoreFactory'
 
-const Store: StoreFactory = new StoreFactory()
+const store: StoreFactory = new StoreFactory()
 
-export default Store
+store.add('auth', authReducer, normalizers.normalizeUser(initialState.auth))
+store.add('modal', modalReducer)
+
+export default store

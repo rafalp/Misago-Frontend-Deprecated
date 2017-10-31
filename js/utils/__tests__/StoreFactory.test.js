@@ -11,7 +11,20 @@ test('add() inserts new Reducer', () => {
   expect(factory.reducers).toEqual({ reducer })
 })
 
-test('createStore() creates store with combined reducers', () => {
+test('add() inserts initial state', () => {
+  const factory = new StoreFactory()
+
+  const reducer = (state, action)  => {
+    return state
+  }
+  const initialState = { count: 42 }
+
+  factory.add('reducer', reducer, initialState)
+
+  expect(factory.initialState).toEqual({ reducer: initialState })
+})
+
+test('create() creates store with combined reducers', () => {
   const factory = new StoreFactory()
 
   const city = (state, action)  => {
@@ -24,7 +37,7 @@ test('createStore() creates store with combined reducers', () => {
   }
   factory.add('user', user)
 
-  const store = factory.createStore()
+  const store = factory.create()
   expect(store.getState()).toEqual({
     city: { city: 'wroclaw' },
     user: { user: 'bob' }

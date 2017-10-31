@@ -10,5 +10,8 @@ module.exports = {
   ],
   transform: {
     '^.+\\.jsx?$': './jest.transformer'
+  },
+  moduleNameMapper: {
+    '^misago/(.*)$': path.resolve(baseDir, "js/$1")
   }
 };

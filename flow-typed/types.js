@@ -6,12 +6,39 @@ export type Action = {
   [string]: mixed
 }
 
-export type AnonymousUser = {
-  id: number
+export type AuthenticatedUser = {
+  id: number | null,
+  username?: string,
+  slug?: string,
+  email?: string,
+  joined_on?: MomentObject | null,
+  rank?: Rank,
+  title?: string | null,
+  avatars?: Array<UserAvatar>,
+  is_hiding_presence?: boolean,
+  followers?: number,
+  following?: number,
+  limits_private_thread_invites_to?: number,
+  unread_private_threads?: number,
+  subscribe_to_started_threads?: number,
+  subscribe_to_replied_threads?: number,
+  threads?: number,
+  posts?: number,
+  acl: Object,
+  api?: mixed,
+  url?: string
 }
 
-export type AuthenticatedUser = {
-  id: number
+export type AvatarProps = {
+  className?: string,
+  size?: number,
+  size2x?: number,
+  user?: User | void
+}
+
+type ModalState = {
+  isOpen: boolean,
+  children: mixed | null
 }
 
 export type OrderedListItem = {

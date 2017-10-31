@@ -7,3 +7,4 @@
 [lints]
 
 [options]
+module.name_mapper='^misago' ->'<PROJECT_ROOT>/js'

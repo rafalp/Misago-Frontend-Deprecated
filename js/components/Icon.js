@@ -1,8 +1,8 @@
 import classNames from 'classnames'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import React from 'react'
 
-const Icon = ({ name, className }) => {
+const Icon = ({ className, name }) => {
   return (
     <span className={classNames('material-icons', className)}>
       {name.replace(' ', '_')}
@@ -11,7 +11,8 @@ const Icon = ({ name, className }) => {
 }
 
 Icon.propTypes = {
-  name: PropTypes.string
-};
+  className: PropTypes.string,
+  name: PropTypes.string.isRequired
+}
 
 export default Icon
