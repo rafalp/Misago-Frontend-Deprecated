@@ -1,6 +1,10 @@
-jest.mock('../../constants', () => {
+import React from 'react'
+import renderer from 'react-test-renderer'
+import Avatar from '../Avatar'
+
+jest.mock('misago/constants', () => {
   return { url: { blank_avatar: 'blank_avatar.png' } }
-});
+})
 
 const user = {
   id: 1,
@@ -10,10 +14,6 @@ const user = {
     { size: 10, url: '/avatars/10.png' }
   ]
 }
-
-import React from 'react'
-import renderer from 'react-test-renderer'
-import Avatar from '../Avatar'
 
 test('<Avatar /> component renders', () => {
   const component = renderer.create(<Avatar />)
