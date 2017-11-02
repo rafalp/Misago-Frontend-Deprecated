@@ -43,3 +43,36 @@ test('add() adds Route to factory', () => {
     },
   ])
 })
+
+test('add() adds Route to urls', () => {
+  const factory = new RouterFactory()
+
+  factory.add('test', '/', true)
+  factory.add('test2', '/totally/', 42)
+
+  expect(factory.urls).toEqual({
+    'test': '/',
+    'test2': '/totally/'
+  })
+})
+
+test('url() returns undefined for nonexistant route', () => {
+  const factory = new RouterFactory('/forums/')
+  expect(factory.url('home')).toBe(undefined)
+})
+
+test('url() returns url for route', () => {
+  const factory = new RouterFactory('/forums/')
+
+  factory.add('home', '/', true)
+  factory.add('threads', '/threads/', true)
+  factory.add('thread', '/t/:pk/:slug/', true)
+
+  expect(factory.url('home')).toBe('/forums/')
+  expect(factory.url('threads')).toBe('/forums/threads/')
+  expect(factory.url('thread')).toBe('/forums/t/:pk/:slug/')
+  expect(factory.url('thread', {
+    pk: 42,
+    slug: 'test-thread'
+  })).toBe('/forums/t/42/test-thread/')
+})

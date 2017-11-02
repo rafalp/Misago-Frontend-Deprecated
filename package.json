@@ -25,6 +25,8 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "classnames": "^2.2.5",
+    "lodash.forown": "^4.4.0",
+    "lodash.trim": "^4.5.1",
     "moment": "^2.19.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",

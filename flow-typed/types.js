@@ -105,3 +105,7 @@ export type UserStatus = {
   is_banned: boolean,
   banned_until: MomentObject
 }
+
+export type ValidationResult = Array<string>
+
+export type CompositeValidationResult = { [string]: ValidationResult }

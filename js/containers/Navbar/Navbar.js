@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Avatar from 'misago/components/Avatar'
 
-
 const Navbar = ({ isAuthenticated, showLoginModal, user }) => {
   return ReactDOM.createPortal(
     [
@@ -16,7 +15,7 @@ const Navbar = ({ isAuthenticated, showLoginModal, user }) => {
         type="button"
         onClick={showLoginModal}
       >
-        Sign in!
+        {gettext('Sign in')}
       </button>
     ],
     document.getElementById('navbar-root')

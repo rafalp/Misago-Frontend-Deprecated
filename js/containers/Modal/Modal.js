@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Modal } from 'reactstrap'
-
+import Modal from 'reactstrap/lib/Modal'
 
 const ModalContainer = ({ children, className, isOpen, onClosed, onHide }) => {
   return ReactDOM.createPortal(
