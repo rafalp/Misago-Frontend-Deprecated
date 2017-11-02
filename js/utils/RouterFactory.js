@@ -26,12 +26,12 @@ class RouterFactory {
     this.urls[name] = normalizedPath
   }
 
-  url(name: string, params: { [string]: string | number } | null | void): string | void {
+  url(name: string, params: ?{ [string]: string | number }): ?string {
     if (!this.urls[name]) return undefined // path not found
     if (!params) return this.urls[name] // path without params
 
     const segments: Array<string> = this.urls[name].split('/')
-    const replacedSegments = segments.map((segment: string): string | void => {
+    const replacedSegments = segments.map((segment: string): string => {
       if (params && segment.substr(0, 1) === ':') {
         const param = segment.substr(1)
         if (params[param]) {

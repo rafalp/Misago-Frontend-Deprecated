@@ -1,7 +1,7 @@
 // @flow
 import { conf } from 'misago/constants'
 
-const getCSRFToken = (): string | null => {
+const getCSRFToken = (): ?string => {
   if (!document.cookie) return null
   if (document.cookie.indexOf(conf.csrf_cookie_name) === -1) return null
 

@@ -2,7 +2,7 @@
 import type MomentObject from 'moment'
 import moment from 'moment'
 
-const normalizeMoment = (data: string | void | null): MomentObject | null => {
+const normalizeMoment = (data: ?string): ?MomentObject => {
   return data ? moment(data) : null
 }
 

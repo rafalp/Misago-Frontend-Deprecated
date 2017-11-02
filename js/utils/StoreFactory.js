@@ -12,7 +12,7 @@ class StoreFactory {
     this.initialState = {}
   }
 
-  add(key: string, reducer: Reducer<State, Action>, initialState: Object | null = null): void {
+  add(key: string, reducer: Reducer<State, Action>, initialState: ?Object): void {
     this.reducers[key] = reducer
     if (initialState) {
       this.initialState[key] = initialState

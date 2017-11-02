@@ -2,7 +2,7 @@
 import forOwn from 'lodash.forown'
 import trim from 'lodash.trim'
 
-const url = (basepath: string, segments: Array<string | number> | void | null, params: { [string]: string | number } | null | void): string => {
+const url = (basepath: string, segments: ?Array<string | number>, params: ?{ [string]: string | number }): string => {
   let finalurl: string = basepath
 
   if (segments && segments.length) {

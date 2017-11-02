@@ -20,7 +20,7 @@ class OrderedList {
     })
   }
 
-  get(key: string, value: mixed | null): mixed | null {
+  get(key: string, value: ?mixed): ?mixed {
     const length: number = this.unordered.length
     for (let i = 0; i < length; i++) {
       if (this.unordered[i].key === key) {

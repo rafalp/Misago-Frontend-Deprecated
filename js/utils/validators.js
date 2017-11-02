@@ -36,7 +36,7 @@ const maxLength = (limit: number, message: ?Function): mixed => {
     )
   })
 
-  return (value: string | Array<mixed> | null | void): string | false => {
+  return (value: ?string | Array<mixed>): string | false => {
     if (typeof value === 'undefined' || value === null) return false
     if (typeof value.length === 'undefined') return false
 
@@ -67,7 +67,7 @@ const minLength = (limit: number, message: ?Function): mixed => {
     )
   })
 
-  return (value: string | Array<mixed> | null | void): string | false => {
+  return (value: ?string | Array<mixed>): string | false => {
     if (typeof value === 'undefined' || value === null) return false
     if (typeof value.length === 'undefined') return false
 
@@ -92,7 +92,7 @@ const minLength = (limit: number, message: ?Function): mixed => {
 const maxValue = (limit: number, message: ?string): mixed => {
   const error = message || gettext('Ensure this value is less than or equal to %(limit_value)s.')
 
-  return (value: number | null | void): string | false => {
+  return (value: ?number): string | false => {
     if (typeof value === 'undefined' || value === null) return false
     if (value > limit) return interpolate(error, { limit_value: limit })
 
@@ -103,7 +103,7 @@ const maxValue = (limit: number, message: ?string): mixed => {
 const minValue = (limit: number, message: ?string): mixed => {
   const error = message || gettext('Ensure this value is greater than or equal to %(limit_value)s.')
 
-  return (value: number | null | void): string | false => {
+  return (value: ?number): string | false => {
     if (typeof value === 'undefined' || value === null) return false
     if (value < limit) return interpolate(error, { limit_value: limit })
 
