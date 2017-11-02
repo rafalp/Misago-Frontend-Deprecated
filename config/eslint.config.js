@@ -99,24 +99,6 @@ module.exports = {
     },
   },
 
-  globals_: {
-    gettext: false,
-    ngettext: false,
-    gettext_noop: false,
-    pgettext: false,
-    npgettext: false,
-    interpolate: false
-  },
-
-  globals: [
-    'gettext',
-    'ngettext',
-    'gettext_noop',
-    'pgettext',
-    'npgettext',
-    'interpolate'
-  ],
-
   rules: {
     // http://eslint.org/docs/rules/
     'array-bracket-spacing': ['warn', 'never'],

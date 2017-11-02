@@ -51,8 +51,8 @@ test('add() adds Route to urls', () => {
   factory.add('test2', '/totally/', 42)
 
   expect(factory.urls).toEqual({
-    'test': '/',
-    'test2': '/totally/'
+    test: '/',
+    test2: '/totally/'
   })
 })
 

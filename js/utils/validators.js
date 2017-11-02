@@ -2,15 +2,15 @@
 import forOwn from 'lodash.forown'
 import interpolate from './interpolate'
 
+// eslint-disable-next-line no-useless-escape, semi
 const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
 
 const isEmail = (message: ?string): mixed => {
   const error = message || gettext('Enter a valid email address.')
 
-  return (value: string | null | void): string | false => {
+  return (value: ?string): string | false => {
     if (typeof value === 'undefined' || value === null) return false
-    const asString = String(value);
-    if (value.trim().length && !emailRegex.test(asString)) return error
+    if (value.trim().length && !emailRegex.test(value)) return error
     return false
   }
 }
@@ -29,12 +29,12 @@ const isRequired = (message: ?string): mixed => {
 
 const maxLength = (limit: number, message: ?Function): mixed => {
   const error: Function = message || ((limit) => {
-      return ngettext(
-        'Ensure this value has at most %(limit_value)s character (it has %(show_value)s).',
-        'Ensure this value has at most %(limit_value)s characters (it has %(show_value)s).',
-        limit
-      )
-    })
+    return ngettext(
+      'Ensure this value has at most %(limit_value)s character (it has %(show_value)s).',
+      'Ensure this value has at most %(limit_value)s characters (it has %(show_value)s).',
+      limit
+    )
+  })
 
   return (value: string | Array<mixed> | null | void): string | false => {
     if (typeof value === 'undefined' || value === null) return false
@@ -60,12 +60,12 @@ const maxLength = (limit: number, message: ?Function): mixed => {
 
 const minLength = (limit: number, message: ?Function): mixed => {
   const error: Function = message || ((limit) => {
-      return ngettext(
-        'Ensure this value has at least %(limit_value)s character (it has %(show_value)s).',
-        'Ensure this value has at least %(limit_value)s characters (it has %(show_value)s).',
-        limit
-      )
-    })
+    return ngettext(
+      'Ensure this value has at least %(limit_value)s character (it has %(show_value)s).',
+      'Ensure this value has at least %(limit_value)s characters (it has %(show_value)s).',
+      limit
+    )
+  })
 
   return (value: string | Array<mixed> | null | void): string | false => {
     if (typeof value === 'undefined' || value === null) return false
@@ -112,25 +112,25 @@ const minValue = (limit: number, message: ?string): mixed => {
 }
 
 const validateValue = (value: mixed, validators: Array<Function>): ValidationResult => {
-  if (!validators) return [];
+  if (!validators) return []
 
-  const errors: ValidationResult = [];
+  const errors: ValidationResult = []
   for (let i = 0; i < validators.length; i++) {
-    const validator = validators[i];
-    const error = validator(value);
-    if (error) errors.push(error);
+    const validator = validators[i]
+    const error = validator(value)
+    if (error) errors.push(error)
   }
-  return errors;
+  return errors
 }
 
 const validateValues = (values: { [string]: mixed }, validators: { [string]: Array<Function> }): CompositeValidationResult => {
-  if (!values || !validators) return {};
+  if (!values || !validators) return {}
 
-  const errors: CompositeValidationResult = {};
+  const errors: CompositeValidationResult = {}
   forOwn(validators, (fieldValidators: Array<Function>, fieldname: string) => {
-    errors[fieldname] = validateValue(values[fieldname], fieldValidators);
+    errors[fieldname] = validateValue(values[fieldname], fieldValidators)
   })
-  return errors;
+  return errors
 }
 
 const flattenErrors = (errors: { [string]: mixed }): Array<string> => {

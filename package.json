@@ -20,6 +20,14 @@
       "es6": true,
       "jest": true,
       "node": true
+    },
+    "globals": {
+      "gettext": false,
+      "ngettext": false,
+      "gettext_noop": false,
+      "pgettext": false,
+      "npgettext": false,
+      "interpolate": false
     }
   },
   "dependencies": {

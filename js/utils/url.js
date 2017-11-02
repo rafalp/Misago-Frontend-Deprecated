@@ -6,7 +6,7 @@ const url = (basepath: string, segments: Array<string | number> | void | null, p
   let finalurl: string = basepath
 
   if (segments && segments.length) {
-    const path = segments.map((i) => trim(new String(i), '/'))
+    const path = segments.map((i) => trim(i + '', '/'))
     finalurl += path.join('/') + '/'
   }
 
