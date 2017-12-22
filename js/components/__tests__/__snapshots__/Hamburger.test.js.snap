@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Hamburger /> component renders 1`] = `
+<span
+  className="hamburger"
+>
+  <span
+    className="hamburger-bar"
+  />
+  <span
+    className="hamburger-bar"
+  />
+  <span
+    className="hamburger-bar"
+  />
+</span>
+`;

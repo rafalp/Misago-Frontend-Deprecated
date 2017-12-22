@@ -1,23 +1,25 @@
 // @flow
-import type { ComponentWithDefaultProps, MapStateToProps } from 'react-redux'
+import type { Dispatch } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { conf, url } from 'misago/constants'
+import mainnav from 'misago/mainnav'
 import Navbar from './Navbar'
 
-const mapStateToProps: MapStateToProps<Object, Object, Object> = (state: Object) => {
+const mapStateToProps = (state: Object) => {
   return {
-    isAuthenticated: !!state.auth.id,
-    user: state.auth
+    conf: conf,
+    nav: mainnav.items(),
+    url: url
   }
 }
 
-const mapDispatchToProps: MapStateToProps<Object, Object, Object> = (state: Object) => {
-  return {
-    isAuthenticated: !!state.auth.id,
-    user: state.auth
-  }
+const mapDispatchToProps = (dispatch: Dispatch<*>) => {
+  return {}
 }
 
-const ConnectedNavbar: ComponentWithDefaultProps<*, *, Object> = connect(mapStateToProps)(Navbar)
+const ConnectedNavbar = connect(mapStateToProps, mapDispatchToProps)(Navbar)
+const NavbarWithRouter = withRouter(ConnectedNavbar)
 
-export default ConnectedNavbar
-export { mapStateToProps }
+export default NavbarWithRouter
+export { mapDispatchToProps, mapStateToProps }

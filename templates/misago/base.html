@@ -26,23 +26,20 @@
     <div id="auth-message-root"></div>
     <div id="snackbar-root"></div>
 
-    <div id="misago-container">
-      {% include "misago/jumbotron.html" %}
-      {% include "misago/navbar.html" %}
-
+    <div id="app-root">
       <noscript>
+        {% include "misago/navbar.html" %}
         <div class="alert alert-warning rounded-0 border-left-0 border-right-0" role="alert">
           <div class="container p-0">
             {% trans "Please enable JavaScript in your browser for complete experience." %}
           </div>
         </div>
         {% block content %}{% endblock content %}
+        {% include "misago/footer.html" %}
       </noscript>
-
-      <div id="app-root"></div>
-
-      {% include "misago/footer.html" %}
+      {% include "misago/loader.html" %}
     </div>
+
     {% include "misago/auth.html" %}
 
     <div id="modal-root"></div>
@@ -63,6 +60,12 @@
     <script src="{% static 'misago/main.js' %}"></script>
     {% include "misago/scripts.html" %}
     <script type="text/javascript">
+      misago.mainnav.add({
+        key: 'github',
+        text: 'Github',
+        url: 'https://github.com/rafalp/Misago',
+        isBlank: true
+      })
       misago.init();
     </script>
 

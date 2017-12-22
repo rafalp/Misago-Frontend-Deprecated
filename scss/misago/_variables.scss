@@ -28,3 +28,10 @@ $icon-size-sm:                ($icon-size-base / 2) !default; // half the base s
 $container-max-widths: (
   xl: 1440px // bump max width to 1440px
 ) !default;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:                18rem !default;

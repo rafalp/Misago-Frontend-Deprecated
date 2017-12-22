@@ -3,20 +3,18 @@ import trim from 'lodash.trim'
 import OrderedList from './OrderedList'
 
 class RouterFactory {
-  basepath: string
   orderedlist: OrderedList
   urls: { [string]: string }
 
-  constructor(basepath: string='/'): void {
-    this.basepath = basepath
+  constructor(): void {
     this.orderedlist = new OrderedList()
     this.urls = {}
   }
 
   normalizePath(path: string): string {
     const trimmedPath: string = trim(path, '/')
-    if (!trimmedPath) return this.basepath
-    return this.basepath + trimmedPath + '/'
+    if (!trimmedPath) return '/'
+    return '/' + trimmedPath + '/'
   }
 
   add(name: string, path: string, component: mixed, order?: { after?: string, before?: string }): void {

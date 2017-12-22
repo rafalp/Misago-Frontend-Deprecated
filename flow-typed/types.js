@@ -36,7 +36,29 @@ export type AvatarProps = {
   user?: User | void
 }
 
-type ModalState = {
+export type Category = {
+  id: number,
+  parent: number,
+  name: string,
+  description?: { plain: string, html: string },
+  is_closed: boolean,
+  css_class?: string,
+  level: number,
+  lft: number,
+  rght: number,
+  url?: { [string]: mixed }
+}
+
+export type MenuItem = {
+  key: string,
+  text: string,
+  url: string,
+  isBlank? boolean,
+  isActive?: Function,
+  exact?: boolean
+}
+
+export type ModalState = {
   isOpen: boolean,
   children: mixed | null
 }
