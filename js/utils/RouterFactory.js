@@ -3,21 +3,23 @@ import trim from 'lodash.trim'
 import OrderedList from './OrderedList'
 
 class RouterFactory {
-  orderedlist: OrderedList
+  basepath: string
+  orderedlist: OrderedList<Route>
   urls: { [string]: string }
 
-  constructor(): void {
+  constructor(basepath: string='/'): void {
+    this.basepath = basepath
     this.orderedlist = new OrderedList()
     this.urls = {}
   }
 
   normalizePath(path: string): string {
     const trimmedPath: string = trim(path, '/')
-    if (!trimmedPath) return '/'
-    return '/' + trimmedPath + '/'
+    if (!trimmedPath) return this.basepath
+    return this.basepath + trimmedPath + '/'
   }
 
-  add(name: string, path: string, component: mixed, order?: { after?: string, before?: string }): void {
+  add(name: string, path: string, component: any, order?: { after?: string, before?: string }): void {
     const normalizedPath: string = this.normalizePath(path)
 
     this.orderedlist.add(name, { component, key: name, path: normalizedPath }, order)
@@ -42,7 +44,7 @@ class RouterFactory {
     return replacedSegments.join('/')
   }
 
-  routes():Array<mixed> {
+  routes():Array<Route> {
     return this.orderedlist.values()
   }
 }

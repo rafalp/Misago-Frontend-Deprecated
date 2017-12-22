@@ -2,7 +2,7 @@
 import OrderedList from './OrderedList'
 
 class MenuFactory {
-  orderedlist: OrderedList
+  orderedlist: OrderedList<MenuItem>
 
   constructor(): void {
     this.orderedlist = new OrderedList()

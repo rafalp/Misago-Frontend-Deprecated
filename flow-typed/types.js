@@ -52,8 +52,8 @@ export type Category = {
 export type MenuItem = {
   key: string,
   text: string,
-  url: string,
-  isBlank? boolean,
+  url: ?string,
+  isBlank?: boolean,
   isActive?: Function,
   exact?: boolean
 }
@@ -63,9 +63,9 @@ export type ModalState = {
   children: mixed | null
 }
 
-export type OrderedListItem = {
+export type OrderedListItem<T> = {
   key: string,
-  item: mixed,
+  item: T,
 
   after: string | null,
   before: string | null
@@ -81,6 +81,12 @@ export type Rank = {
   is_default: boolean,
   is_tab: boolean,
   url: string
+}
+
+export type Route = {
+  component: any,
+  key: string,
+  path: string
 }
 
 export type State = {

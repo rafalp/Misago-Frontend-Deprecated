@@ -6,13 +6,12 @@ import Navbar from './containers/Navbar'
 import Modal from './containers/Modal'
 import router from './router'
 import store from './store'
-import getBasename from './utils/getBasename'
 
 const App = () => {
   return (
     <Provider store={store.create()}>
       <AuthPoll>
-        <BrowserRouter basename={getBasename()}>
+        <BrowserRouter>
           <div className="misago-app">
             <Navbar />
             <Switch>

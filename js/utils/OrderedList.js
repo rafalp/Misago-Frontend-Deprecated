@@ -1,8 +1,8 @@
 // @flow
-class OrderedList {
+class OrderedList<T> {
   isOrdered: boolean
-  unordered: Array<OrderedListItem>
-  items: Array<mixed>
+  unordered: Array<OrderedListItem<T>>
+  items: Array<T>
 
   constructor(): void {
     this.isOrdered = false
@@ -10,7 +10,7 @@ class OrderedList {
     this.items = []
   }
 
-  add(key: string, item: mixed, order?: { after?: string, before?: string }): void {
+  add(key: string, item: T, order?: { after?: string, before?: string }): void {
     this.unordered.push({
       key: key,
       item: item,
@@ -20,7 +20,7 @@ class OrderedList {
     })
   }
 
-  get(key: string, value: ?mixed): ?mixed {
+  get(key: string, value: ?T): ?T {
     const length: number = this.unordered.length
     for (let i = 0; i < length; i++) {
       if (this.unordered[i].key === key) {
@@ -35,7 +35,7 @@ class OrderedList {
     return this.get(key) !== null
   }
 
-  values(): Array<mixed> {
+  values(): Array<T> {
     if (!this.isOrdered) {
       this.items = this._order(this.unordered)
       this.isOrdered = true
@@ -44,20 +44,20 @@ class OrderedList {
     return this.items
   }
 
-  _order(unordered: Array<OrderedListItem>): Array<mixed> {
+  _order(unordered: Array<OrderedListItem<T>>): Array<T> {
     // Index of unordered items
     const index: Array<string> = []
-    unordered.forEach((item: OrderedListItem): void => {
+    unordered.forEach((item: OrderedListItem<T>): void => {
       index.push(item.key)
     })
 
     // Ordered items
-    const ordered: Array<OrderedListItem> = []
+    const ordered: Array<OrderedListItem<T>> = []
     const ordering: Array<string> = []
 
     // First pass: register items that
     // don't specify their order
-    unordered.forEach((item: OrderedListItem): void => {
+    unordered.forEach((item: OrderedListItem<T>): void => {
       if (!item.after && !item.before) {
         ordered.push(item)
         ordering.push(item.key)
@@ -66,7 +66,7 @@ class OrderedList {
 
     // Second pass: register items that
     // specify their before to "_end"
-    unordered.forEach((item: OrderedListItem): void => {
+    unordered.forEach((item: OrderedListItem<T>): void => {
       if (item.before === '_end') {
         ordered.push(item)
         ordering.push(item.key)
@@ -75,7 +75,7 @@ class OrderedList {
 
     // Third pass: register items that
     // specify their after to "_end"
-    unordered.forEach((item: OrderedListItem): void => {
+    unordered.forEach((item: OrderedListItem<T>): void => {
       if (item.after === '_end') {
         ordered.push(item)
         ordering.push(item.key)
@@ -84,7 +84,7 @@ class OrderedList {
 
     // Fourth pass: keep iterating items until we
     // hit iterations limit or finish ordering list
-    const insertItem = (item: OrderedListItem): void => {
+    const insertItem = (item: OrderedListItem<T>): void => {
       let insertAt = -1
       if (ordering.indexOf(item.key) === -1) {
         if (item.after) {
@@ -109,7 +109,7 @@ class OrderedList {
       unordered.forEach(insertItem)
     }
 
-    return ordered.map((item: OrderedListItem): mixed => {
+    return ordered.map((item: OrderedListItem<T>): T => {
       return item.item
     })
   }

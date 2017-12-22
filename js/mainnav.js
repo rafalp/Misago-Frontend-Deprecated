@@ -3,7 +3,7 @@ import { conf } from './constants'
 import router from './router'
 import MenuFactory from './utils/MenuFactory'
 
-const threadsPaths = [
+const threadsPaths: Array<string> = [
   '/',
   '/my/',
   '/new/',
@@ -33,8 +33,6 @@ const users: MenuItem = {
 
 if (conf.threads_on_index) {
   threads.isActive = (match, location) => {
-    console.log(match)
-    console.log(location)
     return threadsPaths.indexOf(location.pathname) !== -1
   }
 
