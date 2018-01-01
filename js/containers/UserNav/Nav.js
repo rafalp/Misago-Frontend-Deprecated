@@ -2,7 +2,14 @@ import React from 'react'
 import NavAnonymous from './NavAnonymous'
 import NavAuthenticated from './NavAuthenticated'
 
-const Nav = ({ isAuthenticated, onLogout, user }) => {
+const Nav = (props) => {
+  const {
+    isAuthenticated,
+    onLogout,
+    onOpenSignInForm,
+    user
+  } = props
+
   if (isAuthenticated) {
     return (
       <NavAuthenticated
@@ -12,7 +19,9 @@ const Nav = ({ isAuthenticated, onLogout, user }) => {
     )
   } else {
     return (
-      <NavAnonymous />
+      <NavAnonymous
+        onOpenSignInForm={onOpenSignInForm}
+      />
     )
   }
 }

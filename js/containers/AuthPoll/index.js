@@ -12,4 +12,3 @@ const mapStateToProps: MapStateToProps<Object, *, *> = (state: Object): Object =
 const AuthPoll = connect(mapStateToProps)(Interval)
 
 export default AuthPoll
-export { mapStateToProps }

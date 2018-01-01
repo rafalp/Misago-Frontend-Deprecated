@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const MainNav = ({ nav }) => {
-  console.log('RENDER!')
   return (
     <div className="navbar-nav">
       {nav.map((item) => {

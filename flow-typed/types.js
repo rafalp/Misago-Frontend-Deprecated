@@ -4,7 +4,7 @@ import type MomentObject from 'moment'
 export type Action = {
   action: string,
   [string]: mixed
-}
+};
 
 export type AuthenticatedUser = {
   id: number | null,
@@ -27,14 +27,7 @@ export type AuthenticatedUser = {
   acl: Object,
   api?: mixed,
   url?: string
-}
-
-export type AvatarProps = {
-  className?: string,
-  size?: number,
-  size2x?: number,
-  user?: User | void
-}
+};
 
 export type Category = {
   id: number,
@@ -46,8 +39,8 @@ export type Category = {
   level: number,
   lft: number,
   rght: number,
-  url?: { [string]: mixed }
-}
+  url?: { [string]: mixed };
+};
 
 export type MenuItem = {
   key: string,
@@ -56,12 +49,12 @@ export type MenuItem = {
   isBlank?: boolean,
   isActive?: Function,
   exact?: boolean
-}
+};
 
 export type ModalState = {
   isOpen: boolean,
   children: mixed | null
-}
+};
 
 export type OrderedListItem<T> = {
   key: string,
@@ -69,7 +62,7 @@ export type OrderedListItem<T> = {
 
   after: string | null,
   before: string | null
-}
+};
 
 export type Rank = {
   id: number,
@@ -81,17 +74,17 @@ export type Rank = {
   is_default: boolean,
   is_tab: boolean,
   url: string
-}
+};
 
 export type Route = {
   component: any,
   key: string,
   path: string
-}
+};
 
 export type State = {
   [string]: mixed
-}
+};
 
 export type User = {
   id: number,
@@ -116,12 +109,12 @@ export type User = {
   status?: UserStatus | null,
   api?: mixed,
   url?: string
-}
+};
 
 export type UserAvatar = {
   size: number,
   url: string
-}
+};
 
 export type UserStatus = {
   is_offline: boolean,
@@ -132,8 +125,18 @@ export type UserStatus = {
   last_click: MomentObject,
   is_banned: boolean,
   banned_until: MomentObject
-}
+};
 
 export type ValidationResult = Array<string>
+export type Validator = (value: any) => string | false
 
-export type CompositeValidationResult = { [string]: ValidationResult }
+export type CompositeValidationResult = { [string]: ValidationResult };
+
+export type FormData = { [string]: any };
+export type FormErrors = { [string]: ValidationResult };
+export type FormValidators = { [string]: Array<Validator> };
+
+export type FormSetErrors = (FormErrors) => void
+export type FormSetSubmitting = (boolean) => void
+export type FormOnClean = (FormData, FormValidators, FormSetErrors) => FormData | false
+export type FormOnSubmit = (FormData, FormSetSubmitting, FormSetErrors) => void

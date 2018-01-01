@@ -5,7 +5,7 @@ import interpolate from './interpolate'
 // eslint-disable-next-line no-useless-escape, semi
 const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
 
-const isEmail = (message: ?string): mixed => {
+const isEmail = (message: ?string): Validator => {
   const error = message || gettext('Enter a valid email address.')
 
   return (value: ?string): string | false => {
@@ -15,7 +15,7 @@ const isEmail = (message: ?string): mixed => {
   }
 }
 
-const isRequired = (message: ?string): mixed => {
+const isRequired = (message: ?string): Validator => {
   const error = message || gettext('This field is required.')
 
   return (value: string | Array<mixed> | null | void): string | false => {
@@ -27,7 +27,7 @@ const isRequired = (message: ?string): mixed => {
   }
 }
 
-const maxLength = (limit: number, message: ?Function): mixed => {
+const maxLength = (limit: number, message: ?Function): Validator => {
   const error: Function = message || ((limit) => {
     return ngettext(
       'Ensure this value has at most %(limit_value)s character (it has %(show_value)s).',
@@ -58,7 +58,7 @@ const maxLength = (limit: number, message: ?Function): mixed => {
   }
 }
 
-const minLength = (limit: number, message: ?Function): mixed => {
+const minLength = (limit: number, message: ?Function): Validator => {
   const error: Function = message || ((limit) => {
     return ngettext(
       'Ensure this value has at least %(limit_value)s character (it has %(show_value)s).',
@@ -89,7 +89,7 @@ const minLength = (limit: number, message: ?Function): mixed => {
   }
 }
 
-const maxValue = (limit: number, message: ?string): mixed => {
+const maxValue = (limit: number, message: ?string): Validator => {
   const error = message || gettext('Ensure this value is less than or equal to %(limit_value)s.')
 
   return (value: ?number): string | false => {
@@ -100,7 +100,7 @@ const maxValue = (limit: number, message: ?string): mixed => {
   }
 }
 
-const minValue = (limit: number, message: ?string): mixed => {
+const minValue = (limit: number, message: ?string): Validator => {
   const error = message || gettext('Ensure this value is greater than or equal to %(limit_value)s.')
 
   return (value: ?number): string | false => {

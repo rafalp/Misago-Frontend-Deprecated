@@ -1,8 +1,14 @@
 // @flow
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 import { url } from 'misago/constants'
+
+type AvatarProps = {
+  className?: string,
+  size?: number,
+  size2x?: number,
+  user?: User | void
+}
 
 const Avatar = ({ className, size, size2x, user }: AvatarProps) => {
   const _size = size || 100
@@ -18,12 +24,6 @@ const Avatar = ({ className, size, size2x, user }: AvatarProps) => {
       width={_size}
     />
   )
-}
-
-Avatar.propTypes = {
-  className: PropTypes.string,
-  size: PropTypes.number,
-  user: PropTypes.object
 }
 
 const getSrcUrlForUserSize = (user?: User, size: number): string => {

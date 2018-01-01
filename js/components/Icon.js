@@ -1,18 +1,18 @@
+// @flow
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 
-const Icon = ({ className, name }) => {
+export type IconProps = {
+  className?: string,
+  name: string
+}
+
+const Icon = ({ className, name }: IconProps) => {
   return (
     <span className={classNames('material-icons', className)}>
       {name.replace(' ', '_')}
     </span>
   )
-}
-
-Icon.propTypes = {
-  className: PropTypes.string,
-  name: PropTypes.string.isRequired
 }
 
 export default Icon

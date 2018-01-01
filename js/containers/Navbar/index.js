@@ -22,4 +22,3 @@ const ConnectedNavbar = connect(mapStateToProps, mapDispatchToProps)(Navbar)
 const NavbarWithRouter = withRouter(ConnectedNavbar)
 
 export default NavbarWithRouter
-export { mapDispatchToProps, mapStateToProps }

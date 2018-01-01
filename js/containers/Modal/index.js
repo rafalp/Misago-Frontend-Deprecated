@@ -8,7 +8,7 @@ const mapStateToProps = (state: Object) => {
   return state.modal
 }
 
-const mapDisaptchToProps = (dispatch: Dispatch<*>) => {
+const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   return {
     onHide: () => {
       return dispatch(actions.hideModal())
@@ -19,7 +19,6 @@ const mapDisaptchToProps = (dispatch: Dispatch<*>) => {
   }
 }
 
-const ConnectedModal = connect(mapStateToProps, mapDisaptchToProps)(Modal)
+const ConnectedModal = connect(mapStateToProps, mapDispatchToProps)(Modal)
 
 export default ConnectedModal
-export { mapStateToProps }

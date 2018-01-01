@@ -1,11 +1,18 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+// @flow
+import * as React from 'react'
+
+type IntervalProps = {
+  children: any,
+  poll: boolean
+}
 
 const frequency = 40 * 1000 // 40s
 
-const Interval = class extends React.Component {
-  constructor() {
-    super()
+const Interval = class extends React.Component<IntervalProps> {
+  intervalId: ?number
+
+  constructor(props: IntervalProps) {
+    super(props)
 
     this.intervalId = null
   }
@@ -30,10 +37,6 @@ const Interval = class extends React.Component {
   render() {
     return this.props.children
   }
-}
-
-Interval.propTypes = {
-  poll: PropTypes.bool.isRequired
 }
 
 export default Interval
