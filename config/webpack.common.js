@@ -1,5 +1,3 @@
-'use strict'
-
 const path = require('path')
 const webpack = require('webpack')
 
@@ -20,7 +18,7 @@ module.exports = {
   module : {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
@@ -36,13 +34,16 @@ module.exports = {
               [
                 'env',
                 {
-                  'targets': {
-                    'browsers': ['last 2 versions', 'safari >= 9']
+                  targets: {
+                    browsers: ['last 2 versions', 'safari >= 9']
                   }
                 }
               ],
               'flow',
               'react'
+            ],
+            plugins: [
+              'transform-class-properties'
             ]
           }
         }

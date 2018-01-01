@@ -1,5 +1,3 @@
-'use strict'
-
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const merge = require('webpack-merge');

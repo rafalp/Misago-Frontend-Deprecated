@@ -1,15 +1,13 @@
-'use strict'
-
 module.exports = {
-  'extends': ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
-  'plugins': [
+  extends: ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
+  plugins: [
     'stylelint-order'
   ],
-  'rules': {
+  rules: {
     'at-rule-empty-line-before': [
       null,
       {
-        'except': ['first-nested']
+        except: ['first-nested']
       }
     ],
     'at-rule-name-space-after': 'always',

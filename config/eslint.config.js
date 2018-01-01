@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-'use strict'
-
 // Inspired by https://github.com/airbnb/javascript but less opinionated.
 
 // We use eslint-loader so even warnings are very visible.
@@ -80,7 +78,7 @@ const restrictedGlobals = [
   'stop',
   'toolbar',
   'top',
-];
+]
 
 module.exports = {
   root: true,
@@ -252,10 +250,10 @@ module.exports = {
     'react/jsx-no-target-blank': 'warn',
     'react/jsx-no-undef': 'error',
     'react/jsx-sort-props': ['warn', {
-      'callbacksLast': true,
-      'shorthandLast': true,
-      'ignoreCase': false,
-      'noSortAlphabetically': false
+      callbacksLast: true,
+      shorthandLast: true,
+      ignoreCase: false,
+      noSortAlphabetically: false
     }],
     'react/jsx-pascal-case': [
       'warn',
@@ -281,7 +279,16 @@ module.exports = {
     'react/no-unknown-property': 'warn',
     'react/react-in-jsx-scope': 'error',
     'react/require-render-return': 'error',
-    'react/sort-comp': 'warn',
+    'react/sort-comp': ['warn', {
+      order: [
+        'type-annotations',
+        'static-methods',
+        'lifecycle',
+        '/^on.+$/',
+        'everything-else',
+        'render'
+      ]
+    }],
     'react/self-closing-comp': 'warn',
     'react/style-prop-object': 'warn',
 

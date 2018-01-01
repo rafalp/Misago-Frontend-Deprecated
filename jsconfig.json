@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "baseUrl": "./js",
+        "paths": {
+            "misago/*": [
+                "./*"
+            ]
+        }
+    },
+    "include": [
+        "js/**/*",
+        "flow-typed/**/*"
+    ]
+}
