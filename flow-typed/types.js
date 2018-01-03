@@ -140,3 +140,16 @@ export type FormSetErrors = (FormErrors) => void
 export type FormSetSubmitting = (boolean) => void
 export type FormOnClean = (FormData, FormValidators, FormSetErrors) => FormData | false
 export type FormOnSubmit = (FormData, FormSetSubmitting, FormSetErrors) => void
+
+export type FormProps = {
+  initialData: FormData,
+  validators?: FormValidators,
+  onClean: FormOnClean,
+  onSubmit: FormOnSubmit
+}
+
+export type FormState = {
+  isSubmitting: boolean,
+  data: FormData,
+  errors: FormErrors
+}

@@ -1,15 +1,19 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
 import { ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import { Form } from 'misago/components/Form'
+import { Form, FormAlert } from 'misago/components/Form'
 
-class SignInForm extends Form {
-  onUsernameChange = (ev) => {
-    this.onChange('username', ev.target.value)
+type Props = {
+  onHide: () => void
+}
+
+class SignInForm extends Form<FormProps & Props, FormState> {
+  onUsernameChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+    this.onChange('username', ev.currentTarget.value)
   }
 
-  onPasswordChange = (ev) => {
-    this.onChange('password', ev.target.value)
+  onPasswordChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+    this.onChange('password', ev.currentTarget.value)
   }
 
   render() {
@@ -24,9 +28,7 @@ class SignInForm extends Form {
           </ModalHeader>
           <ModalBody>
 
-            <div className="alert alert-danger" role="alert">
-              {errors.__all__ ? errors.__all__[0] : ''}
-            </div>
+            <FormAlert errors={errors} />
 
             <div className="form-group">
               <div className="control-input">

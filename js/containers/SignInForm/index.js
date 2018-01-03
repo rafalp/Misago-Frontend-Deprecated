@@ -1,4 +1,3 @@
-// @flow
 import type { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { hideModal } from 'misago/actions/modal'

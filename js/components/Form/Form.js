@@ -3,23 +3,10 @@ import cloneDeep from 'lodash.clonedeep'
 import * as React from 'react'
 import { validateValue } from 'misago/utils/validators'
 
-export type Props = {
-  initialData: FormData,
-  validators?: FormValidators,
-  onClean: FormOnClean,
-  onSubmit: FormOnSubmit
-}
-
-export type State = {
-  isSubmitting: boolean,
-  data: FormData,
-  errors: FormErrors
-}
-
-class Form extends React.Component<Props, State> {
+class Form extends React.Component<FormProps, FormState> {
   validators: FormValidators
 
-  constructor(props: Props) {
+  constructor(props: FormProps) {
     super(props)
 
     this.state = {

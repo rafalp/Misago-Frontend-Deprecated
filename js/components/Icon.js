@@ -2,12 +2,12 @@
 import classNames from 'classnames'
 import * as React from 'react'
 
-export type IconProps = {
+export type Props = {
   className?: string,
   name: string
 }
 
-const Icon = ({ className, name }: IconProps) => {
+const Icon = ({ className, name }: Props) => {
   return (
     <span className={classNames('material-icons', className)}>
       {name.replace(' ', '_')}

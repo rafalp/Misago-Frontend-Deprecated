@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import * as React from 'react'
 import { url } from 'misago/constants'
 
-type AvatarProps = {
+type Props = {
   className?: string,
   size?: number,
   size2x?: number,
   user?: User | void
 }
 
-const Avatar = ({ className, size, size2x, user }: AvatarProps) => {
+const Avatar = ({ className, size, size2x, user }: Props) => {
   const _size = size || 100
   const _size2x = size2x || _size
 

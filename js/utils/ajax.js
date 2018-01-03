@@ -9,7 +9,7 @@ const request = (url, ops) => {
     },
     timeout: 15000,
     url: url
-  }, ops));
+  }, ops))
 }
 
 const get = (url, params) => {
@@ -40,7 +40,7 @@ const put = (url, data) => {
   })
 }
 
-const delete = (url, data) => {
+const _delete = (url, data) => {
   return request(url, {
     method: 'DELETE',
     data: data || null
@@ -54,10 +54,11 @@ const upload = (url, data, onProgress) => {
   })
 }
 
-export {
+export default {
+  delete: _delete,
   get,
   post,
   patch,
   put,
-  delete,
+  upload
 }
