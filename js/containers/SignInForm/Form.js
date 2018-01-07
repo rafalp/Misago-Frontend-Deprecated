@@ -1,34 +1,33 @@
 // @flow
 import * as React from 'react'
 import { ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import { Form, FormAlert } from 'misago/components/Form'
+import * as Form from 'misago/components/Form'
 
 type Props = {
   onHide: () => void
 }
 
-class SignInForm extends Form<FormProps & Props, FormState> {
+class SignInForm extends React.Component<Props & Form.Props> {
   onUsernameChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    this.onChange('username', ev.currentTarget.value)
+    this.props.onChange('username', ev.currentTarget.value)
   }
 
   onPasswordChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    this.onChange('password', ev.currentTarget.value)
+    this.props.onChange('password', ev.currentTarget.value)
   }
 
   render() {
-    const { onHide } = this.props
-    const { data, errors, isSubmitting } = this.state
+    const { data, errors, isSubmitting, onHide, onSubmit } = this.props
 
     return (
       <React.Fragment>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={onSubmit}>
           <ModalHeader toggle={onHide}>
             {gettext('Sign in')}
           </ModalHeader>
           <ModalBody>
 
-            <FormAlert errors={errors} />
+            <Form.Alert errors={errors} />
 
             <div className="form-group">
               <div className="control-input">
@@ -70,4 +69,11 @@ class SignInForm extends Form<FormProps & Props, FormState> {
   }
 }
 
-export default SignInForm
+const EnhancedSignInForm = (props: Props & Form.WrapperProps) => {
+  return (
+    <Form.Component component={SignInForm} {...props} />
+  )
+}
+
+export default EnhancedSignInForm
+export { SignInForm }

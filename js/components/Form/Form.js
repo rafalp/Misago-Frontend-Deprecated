@@ -3,10 +3,39 @@ import cloneDeep from 'lodash.clonedeep'
 import * as React from 'react'
 import { validateValue } from 'misago/utils/validators'
 
-class Form extends React.Component<FormProps, FormState> {
+type FormOnClean = (FormData, FormValidators, FormSetErrors) => FormData | false
+type FormOnSubmit = (FormData, FormSetSubmitting, FormSetErrors) => void
+
+export type WrapperProps = {
+  component: React.ComponentType<*>,
+  initialData: FormData,
+  validators?: FormValidators,
+  onClean: FormOnClean,
+  onSubmit: FormOnSubmit
+}
+
+export type Props = {
+  data: FormData,
+  errors: FormErrors,
+  initialData: FormData,
+  validators: FormValidators,
+  isSubmitting: boolean,
+  setErrors: FormSetErrors,
+  setSubmitting: FormSetSubmitting,
+  onChange: (string, any) => void,
+  onSubmit: (?SyntheticEvent<HTMLFormElement>) => ?boolean
+}
+
+type State = {
+  isSubmitting: boolean,
+  data: FormData,
+  errors: FormErrors
+}
+
+class Component extends React.Component<WrapperProps, State> {
   validators: FormValidators
 
-  constructor(props: FormProps) {
+  constructor(props: WrapperProps) {
     super(props)
 
     this.state = {
@@ -31,8 +60,8 @@ class Form extends React.Component<FormProps, FormState> {
     })
   }
 
-  onSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
-    ev.preventDefault()
+  onSubmit = (ev: ?SyntheticEvent<HTMLFormElement>) => {
+    if (ev) ev.preventDefault()
     if (this.state.isSubmitting) return false
     this.clean()
     return false
@@ -57,6 +86,25 @@ class Form extends React.Component<FormProps, FormState> {
   setSubmitting = (isSubmitting: boolean) => {
     this.setState({ isSubmitting })
   }
+
+  render = () => {
+    const Component = this.props.component
+    const props = Object.assign({}, this.props, {
+      data: this.state.data,
+      errors: this.state.errors,
+      initialData: this.props.initialData,
+      validators: this.validators,
+      isSubmitting: this.state.isSubmitting,
+      setErrors: this.setErrors,
+      setSubmitting: this.setSubmitting,
+      onChange: this.onChange,
+      onSubmit: this.onSubmit
+    })
+
+    return (
+      <Component {...props} />
+    )
+  }
 }
 
-export default Form
+export default Component

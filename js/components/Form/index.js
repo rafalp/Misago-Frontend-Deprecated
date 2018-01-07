@@ -1,8 +1,10 @@
 // @flow
-import FormAlert from './FormAlert'
-import Form from './Form'
+import Alert from './Alert'
+import Component from './Form'
+
+export type { WrapperProps, Props } from './Form'
 
 export {
-  Form,
-  FormAlert
+  Alert,
+  Component
 }

@@ -1,8 +1,9 @@
+// @flow
 import type { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { hideModal } from 'misago/actions/modal'
 import { cleanForm, submitForm } from 'misago/actions/signin'
-import SignInForm from './SignInForm'
+import Form from './Form'
 
 const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   return {
@@ -16,6 +17,6 @@ const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   }
 }
 
-const ConnectedSignInForm = connect(null, mapDispatchToProps)(SignInForm)
+const ConnectedForm = connect(null, mapDispatchToProps)(Form)
 
-export default ConnectedSignInForm
+export default ConnectedForm
