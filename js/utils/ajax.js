@@ -1,7 +1,10 @@
+// @flow
 import axios from 'axios'
 import getCSRFToken from './getCSRFToken'
 
-const request = (url, ops) => {
+type OnProgress = (number) => void
+
+const request = (url: string, ops: {}) => {
   return axios(Object.assign({
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
@@ -12,45 +15,45 @@ const request = (url, ops) => {
   }, ops))
 }
 
-const get = (url, params) => {
+const get = (url: string, params: ?{}) => {
   return request(url, {
     method: 'GET',
     params: params || null
   })
 }
 
-const post = (url, data) => {
+const post = (url: string, data: ?{}) => {
   return request(url, {
     method: 'POST',
     data: data || null
   })
 }
 
-const patch = (url, data) => {
+const patch = (url: string, data: []) => {
   return request(url, {
     method: 'PATCH',
     data: data || null
   })
 }
 
-const put = (url, data) => {
+const put = (url: string, data: ?{}) => {
   return request(url, {
     method: 'PUT',
     data: data || null
   })
 }
 
-const _delete = (url, data) => {
+const _delete = (url: string, data: ?{}) => {
   return request(url, {
     method: 'DELETE',
     data: data || null
   })
 }
 
-const upload = (url, data, onProgress) => {
+const upload = (url: string, data: {}, onProgress: OnProgress) => {
   return request(url, {
     method: 'POST',
-    data: data || null
+    data: data
   })
 }
 
@@ -60,5 +63,6 @@ export default {
   post,
   patch,
   put,
-  upload
+  upload,
+  request
 }

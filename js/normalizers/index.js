@@ -1,3 +1,4 @@
+// @flow
 import normalizeMoment from './normalizeMoment'
 import normalizeUser from './normalizeUser'
 

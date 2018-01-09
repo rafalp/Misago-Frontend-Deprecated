@@ -6,11 +6,11 @@ type Props = {
 }
 
 const Alert = ({ errors }: Props) => {
-  if (!errors.__all__ || !errors.__all__[0]) return null
+  if (!errors.non_field_errors || !errors.non_field_errors[0]) return null
 
   return (
     <div className="alert alert-danger" role="alert">
-      {errors.__all__[0]}
+      {errors.non_field_errors[0]}
     </div>
   )
 }

@@ -1,6 +1,8 @@
+// @flow
+import * as React from 'react'
 import { actions } from 'misago/constants'
 
-const showModal = (children, className=null) => {
+const showModal = (children: React.Node, className: ?string=null) => {
   return {
     children,
     className,

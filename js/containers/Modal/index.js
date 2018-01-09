@@ -1,7 +1,7 @@
 // @flow
 import type { Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from 'misago/actions/modal'
+import { hideModal, unmountModal } from 'misago/actions/modal'
 import Modal from './Modal'
 
 const mapStateToProps = (state: Object) => {
@@ -11,10 +11,10 @@ const mapStateToProps = (state: Object) => {
 const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   return {
     onHide: () => {
-      return dispatch(actions.hideModal())
+      return dispatch(hideModal())
     },
     onClosed: () => {
-      return dispatch(actions.unmountModal())
+      return dispatch(unmountModal())
     }
   }
 }

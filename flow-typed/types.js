@@ -1,4 +1,5 @@
 // @flow
+// eslint no-use-before-define:0
 import type MomentObject from 'moment'
 
 export type Action = {
@@ -84,6 +85,11 @@ export type Route = {
 
 export type State = {
   [string]: mixed
+}
+
+export type SignInCredentials = {
+  username: string,
+  password: string
 }
 
 export type User = {

@@ -1,18 +1,17 @@
 // @flow
 import * as React from 'react'
+import { login } from 'misago/actions/auth'
+import { api } from 'misago/constants'
 import SignInForm from 'misago/containers/SignInForm'
-import getCSRFToken from 'misago/utils/getCSRFToken'
+import { normalizeUser } from 'misago/normalizers'
+import ajax from 'misago/utils/ajax'
 import { showModal } from './modal'
 
-type SignInCredentials = {
-  username: string,
-  password: string
-}
+type CleanForm = (SignInCredentials, FormValidators, FormSetErrors) => SignInCredentials | false
+type SubmitForm = (SignInCredentials, FormSetSubmitting, FormSetErrors) => any
 
-type SubmitForm = (data: FormData, FormSetSubmitting, FormSetErrors) => void
-
-const openForm = () => {
-  return (dispatch: Dispatch) => {
+const openForm = (): any => {
+  return (dispatch: Dispatch<*>) => {
     const component = (
       <SignInForm
         initialData={{
@@ -26,14 +25,14 @@ const openForm = () => {
   }
 }
 
-const cleanForm = (data, validators, setErrors) => {
-  const cleanedData = {
+const cleanForm: CleanForm = (data, validators, setErrors) => {
+  const cleanedData: SignInCredentials = {
     username: data.username.trim(),
     password: data.password.trim()
   }
 
   if (cleanedData.username.length === 0 || cleanedData.password.length === 0) {
-    setErrors({ __all__: [gettext('Fill in both fields.')] })
+    setErrors({ non_field_errors: [gettext('Fill in both fields.')] })
     return false
   }
 
@@ -41,26 +40,17 @@ const cleanForm = (data, validators, setErrors) => {
 }
 
 const submitForm: SubmitForm = (data, setSubmitting, setErrors) => {
-  return (dispatch: Dispatch) => {
-    const form = document.getElementById('auth-login')
-    if (!form) return
-
-    const username = document.createElement('input')
-    username.type = 'text'
-    username.name = 'username'
-    username.value = data.username
-    form.appendChild(username)
-
-    const password = document.createElement('input')
-    password.type = 'password'
-    password.name = 'password'
-    password.value = data.password
-    form.appendChild(password)
-
-    form.querySelector('input[type="hidden"]').value = getCSRFToken()
-    form.querySelector('input[name="redirect_to"]').value = window.location.pathname
-
-    form.submit()
+  return (dispatch: Dispatch<*>) => {
+    ajax.post(api + 'auth/', data).then((userData: {}) => {
+      const user: AuthenticatedUser = normalizeUser(userData)
+      dispatch(login(data, user))
+    }).catch((rejection) => {
+      if (rejection.response) {
+        setErrors(rejection.response.data)
+      } else {
+        console.log('dc!')
+      }
+    })
   }
 }
 

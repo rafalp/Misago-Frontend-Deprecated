@@ -1,3 +1,4 @@
+// @flow
 import * as actions from './actions'
 import api from './api'
 import * as auth from './auth'
