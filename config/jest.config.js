@@ -2,6 +2,8 @@ const path = require('path')
 
 const baseDir = path.dirname(__dirname)
 
+console.log('CONFIG LOADED!')
+
 module.exports = {
   roots: [
     path.resolve(baseDir, 'js')
