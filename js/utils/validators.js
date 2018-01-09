@@ -6,6 +6,7 @@ import interpolate from './interpolate'
 const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
 
 const isEmail = (message: ?string): Validator => {
+  console.log(global)
   const error = message || gettext('Enter a valid email address.')
 
   return (value: ?string): string | false => {
