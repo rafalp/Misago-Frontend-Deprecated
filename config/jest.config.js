@@ -12,7 +12,7 @@ module.exports = {
   moduleNameMapper: {
     '^misago/(.*)$': path.resolve(baseDir, "js/$1")
   },
-  globals: {
+  __globals: {
     gettext: function(msgid) { return msgid },
     ngettext: function(singular, plural, count) { return (count == 1) ? singular : plural },
     gettext_noop: function(msgid) { return msgid },
@@ -25,5 +25,8 @@ module.exports = {
         return fmt.replace(/%s/g, function(match){return String(obj.shift())})
       }
     }
+  },
+  globals: {
+    gettext: 123
   }
 }
