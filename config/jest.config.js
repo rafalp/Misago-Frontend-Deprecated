@@ -2,8 +2,6 @@ const path = require('path')
 
 const baseDir = path.dirname(__dirname)
 
-const gettext = (msgid) => { return msgid };
-
 module.exports = {
   roots: [
     path.resolve(baseDir, 'js')
@@ -15,7 +13,7 @@ module.exports = {
     '^misago/(.*)$': path.resolve(baseDir, "js/$1")
   },
   globals: {
-    gettext,
+    gettext: function(msgid) { return msgid },
     ngettext: function(singular, plural, count) { return (count == 1) ? singular : plural },
     gettext_noop: function(msgid) { return msgid },
     pgettext: function(context, msgid) { return msgid },
