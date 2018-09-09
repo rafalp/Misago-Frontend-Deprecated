@@ -7,21 +7,12 @@ Misago Frontend
    :target: https://travis-ci.org/rafalp/Misago-Frontend
    :alt: Tests Result
 
-.. image:: https://badges.gitter.im/Misago/Misago.svg
-   :target: https://gitter.im/Misago/Misago?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
-   :alt: Development Chat
+**Development Status:** ⚠️*DEPRECATED*⚠️
 
 
-**Development Status:** *Nothing to see here... yet!*
+This repository contains source code for abadoned effort to rewrite Misago frontend using React.js 16, Bootstrap 4 and Flow.js, that I was working on in late 2017. As I've worked on this repo, it eventually became apparent to me that plan of just rewriting bunch of Misago and then piecing it together with new frontend was mistake that would endanger my ability to ship new releases in meantime.
 
-
-This repository contains source for Misago frontend, written using React.js 16 and Bootstrap 4.
-
-Ultimately this respository will contain source assets and build scripts, enabling those looking to develop custom theme for their site to simply fork this repo, edit its config and then happily hack around.
-
-But until this stage of development is achieved, this repo will be iterated on aggressively and include some additional files (like work in progress Django templates) that will be moved on to main repo before release.
-
-For issues tracker see the `Single Page Application <https://github.com/rafalp/Misago/milestone/22>`_ milestone on main repo.
+Today my plan for new Misago frontend is to have transition period during which Misago will support both old and new Frontends, old and new features existing side by side in the codebase, and just removing old frontend's code when new frontend is ready to ship.
 
 
 Development
